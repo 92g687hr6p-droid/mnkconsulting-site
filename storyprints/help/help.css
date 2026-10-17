@@ -1,0 +1,185 @@
+/* StoryPrints help pages: the animated chapter player and chapter lists.
+   Loaded after /styles.css on help pages only. */
+
+.wrap.wide { max-width: 60rem; }
+
+.crumbs { font-size: 0.9rem; color: var(--muted); margin: 0 0 1rem; }
+.crumbs a { color: var(--muted); }
+
+.chapter-meta { color: var(--muted); margin: 0 0 1.4rem; }
+
+/* Player */
+.player {
+  background: #0B0C0D;
+  border-radius: 14px;
+  overflow: hidden;
+  color: #F2F2EE;
+  margin: 0 0 1.5rem;
+}
+.stage { position: relative; cursor: pointer; }
+.stage .scene { display: block; }
+.stage .scene[hidden] { display: none; }
+.stage svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+.start-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #FFFFFF;
+  font: inherit;
+}
+.start-overlay[hidden] { display: none; }
+.start-overlay span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #2563C9;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.start-overlay:focus-visible span { outline: 3px solid #FFFFFF; outline-offset: 3px; }
+
+.caption {
+  margin: 0;
+  padding: 0.9rem 1.2rem;
+  min-height: 4.6em;
+  background: #1C1F22;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+.caption .scene-name {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #A6ABAF;
+  margin-bottom: 0.15rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem 0.9rem;
+  background: #1C1F22;
+  border-top: 1px solid #24282C;
+}
+.controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #3E4246;
+  background: transparent;
+  color: #DCE7FC;
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.controls button:hover { border-color: #8FB4F5; }
+.controls button:focus-visible { outline: 3px solid #8FB4F5; outline-offset: 2px; }
+.controls button:disabled { opacity: 0.4; cursor: default; }
+.controls .play-btn { background: #2563C9; border-color: #2563C9; color: #FFFFFF; font-weight: 600; min-width: 6.5rem; }
+.controls svg { width: 18px; height: 18px; fill: currentColor; }
+
+.seek {
+  flex: 1 1 12rem;
+  min-width: 8rem;
+  accent-color: #8FB4F5;
+  height: 44px;
+  margin: 0;
+}
+.time { font-size: 0.85rem; color: #A6ABAF; font-variant-numeric: tabular-nums; min-width: 5.5rem; text-align: right; }
+
+.scene-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem 1rem;
+  background: #1C1F22;
+}
+.scene-list li { margin: 0; }
+.scene-list button {
+  min-height: 44px;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #3E4246;
+  background: transparent;
+  color: #F2F2EE;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.scene-list button[aria-current="true"] { background: #F2F2EE; color: #111315; border-color: #F2F2EE; font-weight: 600; }
+.scene-list button:focus-visible { outline: 3px solid #8FB4F5; outline-offset: 2px; }
+
+/* Transcript */
+.steps { padding-left: 1.4rem; }
+.steps li { margin-bottom: 1rem; }
+.steps strong { display: block; }
+.tip {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left-width: 1px;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+}
+
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+}
+.chapter-nav .soon { color: var(--muted); }
+
+/* Chapter list */
+.chapters { list-style: none; padding: 0; margin: 1.2rem 0; display: grid; gap: 0.8rem; }
+.chapters li { margin: 0; }
+.chapters .card { margin: 0; display: flex; gap: 1rem; align-items: flex-start; }
+.chapters .num {
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.chapters .soon-card .num { background: var(--line); color: var(--muted); }
+.chapters h2 { font-size: 1.1rem; margin: 0.15rem 0 0.25rem; }
+.chapters p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.chapters .badge { font-size: 0.8rem; color: var(--muted); font-weight: 400; margin-left: 0.4rem; }
+
+@media (max-width: 30rem) {
+  .caption { font-size: 1.02rem; padding: 0.8rem 1rem; }
+  .time { display: none; }
+}
