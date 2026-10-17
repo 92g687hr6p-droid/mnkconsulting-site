@@ -17,7 +17,7 @@
   margin: 0 0 1.5rem;
 }
 .stage { position: relative; cursor: pointer; }
-.stage .scene { display: block; }
+.stage .scene { display: block; margin: 0; }
 .stage .scene[hidden] { display: none; }
 .stage svg {
   display: block;
