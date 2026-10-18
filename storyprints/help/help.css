@@ -133,6 +133,36 @@
 .scene-list button[aria-current="true"] { background: #F2F2EE; color: #111315; border-color: #F2F2EE; font-weight: 600; }
 .scene-list button:focus-visible { outline: 3px solid #8FB4F5; outline-offset: 2px; }
 
+/* Read aloud */
+.narration {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.2rem;
+  padding: 0 1rem 0.9rem;
+  background: #1C1F22;
+  font-size: 0.95rem;
+  color: #DCE7FC;
+}
+.narration[hidden] { display: none; }
+.narration label { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; cursor: pointer; }
+.narration input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: #8FB4F5; margin: 0; }
+.narration .read-aloud { font-weight: 600; }
+.narration select {
+  min-height: 40px;
+  max-width: 16rem;
+  padding: 0 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #3E4246;
+  background: #111315;
+  color: #F2F2EE;
+  font: inherit;
+  font-size: 0.9rem;
+}
+.narration select:focus-visible, .narration input:focus-visible { outline: 3px solid #8FB4F5; outline-offset: 2px; }
+.narration .voice-note { flex-basis: 100%; margin: 0; font-size: 0.85rem; color: #A6ABAF; }
+.narration .voice-note[hidden] { display: none; }
+
 /* Transcript */
 .steps { padding-left: 1.4rem; }
 .steps li { margin-bottom: 1rem; }
@@ -182,4 +212,5 @@
 @media (max-width: 30rem) {
   .caption { font-size: 1.02rem; padding: 0.8rem 1rem; }
   .time { display: none; }
+  .narration select { max-width: 12rem; }
 }
