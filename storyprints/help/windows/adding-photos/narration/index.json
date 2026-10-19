@@ -1,0 +1,29 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  }
+ ],
+ "lines": {
+  "The Add photos tile tells you how.": "e4cf1d34f4e8",
+  "Click Add photos, then choose Album pages or Single photos.": "8316307242ec",
+  "Pick the photos, holding Ctrl to choose more than one, and click Open.": "fadee57b4246",
+  "They’re added, ready to crop. Add more from other folders the same way.": "981bc2ac1c12",
+  "Added something as the wrong type? Open it and click the ⋮ menu at the top right.": "9c892392616a",
+  "It's an album page turns it into an album page you can take photos from.": "ba284f7b8640",
+  "On an album page, It's a photo changes it back to a single photo.": "e2c1dd3eeffb",
+  "Photos that are already digital don’t need cropping.": "44c1d3626cb1",
+  "Click No crop. A photo is only saved if you change something.": "c224b44e86ca",
+  "Click Details to add its description and as much of the date as you know…": "f554ca604ec6",
+  "…and it’s ready to save.": "48a69b5f8d28",
+  "In the grid, an amber edge and a Crop label mean a photo still needs cropping.": "6d2bf264182f",
+  "A green tick means it’s ready to save.": "373bffaf307f",
+  "Click Needs a crop to see just those still to do. All shows everything again.": "33cfc3181c24"
+ }
+}

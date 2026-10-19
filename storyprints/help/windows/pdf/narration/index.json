@@ -1,0 +1,25 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  }
+ ],
+ "lines": {
+  "Make a PDF from the same show: open Title & PDF.": "111b6fcdcac6",
+  "Choose A4 pages, and 1, 2 or 4 photos per page.": "45419fa35046",
+  "Click Make PDF. It’s saved beside the photos, with the title page first and each photo’s caption under it.": "f85668e7ccbf",
+  "Or choose A5 booklet, with 1 or 2 photos on each page.": "a576ba13a38b",
+  "The note explains the two PDFs: the A5 pages, and a booklet to print on both sides of A4.": "ed1823b9b708",
+  "Print the test sheet first to check your printer. Then Make PDF…": "24f9e106d03f",
+  "…print the booklet on both sides, flipping on the short edge, fold the sheets in half and staple on the fold.": "5d9173b7e8b6",
+  "A printed page has less room than the screen. StoryPrints tells you which captions are too long.": "27d62a996ae3",
+  "Review shows each one, with the part that won’t print crossed out.": "f44ddf246455",
+  "Shorten it automatically, or write shorter words just for the PDF. The photo’s own description isn’t changed.": "7462dafffaf2"
+ }
+}

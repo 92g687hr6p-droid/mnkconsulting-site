@@ -1,0 +1,33 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  }
+ ],
+ "lines": {
+  "StoryPrints finds the edges for you and outlines the photo in lime.": "8de03993e14c",
+  "If the outline is right, click Accept crop.": "3e8c81294a2e",
+  "The photo is cropped and ready to save.": "cb7851d41a12",
+  "To accept several crops at once, press and hold one of them in the grid.": "2167967a7eee",
+  "Click the others whose outlines look right…": "5f5a8acb1093",
+  "…then click Accept crops.": "50e962ee26f5",
+  "They’re all cropped and ready to save.": "ffa16916f376",
+  "Shortcuts, at the top right, lists what the mouse and keys can do.": "a285feb87841",
+  "If a side of the box is in the wrong place, click near the edge.": "3a708f66f694",
+  "Close the list, then click just inside the photo, near its real edge.": "70463416833d",
+  "StoryPrints finds the edge there and moves that side to it.": "904299d28bcd",
+  "Try this first: it’s often all you need. Then click Apply Crop.": "2d902b25e4f2",
+  "Open Shortcuts to see the mouse and keys for fine adjustment:": "7884e905d7e6",
+  "drag a corner, choose a corner with 1 to 4, move it with the arrow keys, and zoom with the mouse wheel.": "bf13fefd9b80",
+  "Close the list, then drag a corner. The magnifier shows it close up.": "33579327591d",
+  "Press 1 to 4 to choose a corner, then nudge it with the arrow keys.": "4acf87185685",
+  "The mouse wheel zooms in where the pointer is, and 0 zooms out again.": "77827fc0d441",
+  "When it’s right, click Apply Crop.": "62a9bd1ef09b"
+ }
+}

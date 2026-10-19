@@ -1,0 +1,25 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  }
+ ],
+ "lines": {
+  "When you’re ready, click Finish & save.": "7918a909db55",
+  "Save to shows where the photos will go. Choose folder picks a different one…": "7402eb300dcd",
+  "…then click Save. Each finished photo is saved there, with its description and date.": "e18786a63e46",
+  "StoryPrints always saves new copies. The photos you added are never changed.": "fe2114340aaa",
+  "Save the same photo again and you get another file, such as Brighton pier 1962 (1).": "aaaaaef92e38",
+  "When you’re happy with the results, you can delete the originals yourself, or keep them, for example to take more photos from an album page later.": "d97284a8e069",
+  "A big project? Save progress keeps it, so you can stop and carry on later.": "15ee366a7bef",
+  "Give the work a name. Photos ready so far are saved, and everything else is kept in the same folder.": "313300904172",
+  "Next time, it’s on the home screen under Continue saved work…": "1e8a0f70d991",
+  "…click Continue, and everything is just as you left it.": "71602f481c1c"
+ }
+}

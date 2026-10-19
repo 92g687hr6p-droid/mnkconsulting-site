@@ -7,10 +7,12 @@
  * starts. Scenes play one after another; captions follow the scene's clock.
  * With "reduce motion" on, each scene opens at its end with all its words.
  *
- * Read aloud (optional, off by default): the browser's own speech voices
- * speak each caption line as it appears. If a line is still being spoken
- * when the next one is due, the scene waits for it. The visitor picks the
- * voice and speed; the choice is remembered in this browser only.
+ * Read aloud (optional, off by default): each caption line is spoken as it
+ * appears, by a recorded voice (narration/index.json beside the page, made
+ * with _tools/make_narration.py) or by one of the browser's own voices. If a
+ * line is still being spoken when the next one is due, the scene waits for
+ * it. The visitor picks the voice and speed; the choice is remembered in this
+ * browser only.
  */
 (function () {
   "use strict";
@@ -60,8 +62,16 @@
   }
 
   // ---- Read aloud -------------------------------------------------------
+  // Two kinds of voice: recorded voices (narration/index.json beside the page,
+  // one file per caption line, made with _tools/make_narration.py) and the
+  // browser's own speech voices. Recorded voices come first and play from this
+  // website only; a line with no recording is spoken by the browser if it can.
+  var OFFER_BROWSER_VOICES = false;
   var synth = window.speechSynthesis;
-  var narr = { on: false, voices: [], voice: null, rate: 1, spoken: -1, speaking: false, holding: false, token: 0, unlocked: false };
+  if (typeof SpeechSynthesisUtterance === "undefined") synth = null;
+  var narr = { on: false, choices: [], choice: null, rate: 1, spoken: -1, speaking: false, holding: false, token: 0, unlocked: false };
+  var rec = { voices: [], lines: {}, ext: ".mp3" };
+  var audio = null;
   var narrUI = null;
 
   function store(key, value) {
@@ -77,35 +87,76 @@
     if (/natural/i.test(v.name)) r -= 1;
     return r;
   }
+  function choiceKey(c) { return c ? (c.kind === "rec" ? "rec:" + c.id : c.voice.voiceURI) : null; }
+  function cleanLine(text) { return text.replace(/^[\s…]+|[\s…]+$/g, "").replace(/…/g, ", ").replace(/·/g, ","); }
+  function lineKey(text) { return text.replace(/\s+/g, " ").trim(); }
+  function recordingOf(text, c) {
+    var id = rec.lines[lineKey(text)];
+    return id && c && c.kind === "rec" ? "narration/" + c.id + "/" + id + rec.ext : null;
+  }
 
   function loadVoices() {
-    if (!synth || !narrUI) return;
-    var all = synth.getVoices() || [];
-    var english = all.filter(function (v) { return v.lang && /^en/i.test(v.lang); });
-    english.sort(function (a, b) { return voiceRank(a) - voiceRank(b) || a.name.localeCompare(b.name); });
-    if (!english.length) english = all.slice();
-    narr.voices = english;
-    if (!english.length) return;
+    if (!narrUI) return;
+    var choices = rec.voices.map(function (v) { return { kind: "rec", id: v.id, label: v.label }; });
+    var web = [];
+    if (synth && OFFER_BROWSER_VOICES) {
+      var all = synth.getVoices() || [];
+      web = all.filter(function (v) { return v.lang && /^en/i.test(v.lang); });
+      web.sort(function (a, b) { return voiceRank(a) - voiceRank(b) || a.name.localeCompare(b.name); });
+      if (!web.length) web = all.slice();
+    }
+    web.forEach(function (v) { choices.push({ kind: "web", voice: v }); });
+    narr.choices = choices;
+    if (!choices.length) return;
     narrUI.box.hidden = false;
-    var saved = stored("storyprints-help-voice");
-    var keep = narr.voice ? narr.voice.voiceURI : saved;
+    // the visitor's own choice if it is here, otherwise the first recorded voice
+    var keep = stored("storyprints-help-voice");
     narrUI.voice.innerHTML = "";
-    english.forEach(function (v, i) {
+    var group = function (label) {
+      if (!rec.voices.length || !web.length) return narrUI.voice;
+      var g = document.createElement("optgroup");
+      g.label = label;
+      narrUI.voice.appendChild(g);
+      return g;
+    };
+    var recGroup = rec.voices.length ? group("Recorded for this guide") : null;
+    var webGroup = web.length ? group("Your browser’s voices") : null;
+    choices.forEach(function (c, i) {
       var o = document.createElement("option");
       o.value = String(i);
-      o.textContent = v.name.replace(/^Microsoft\s+/, "").replace(/\s*-\s*English.*$/, "") +
-        " (" + v.lang + ")" + (v.localService ? "" : " · Online");
-      narrUI.voice.appendChild(o);
+      if (c.kind === "rec") {
+        o.textContent = c.label;
+        recGroup.appendChild(o);
+      } else {
+        var v = c.voice;
+        o.textContent = v.name.replace(/^Microsoft\s+/, "").replace(/\s*-\s*English.*$/, "") +
+          " (" + v.lang + ")" + (v.localService ? "" : " · Online");
+        webGroup.appendChild(o);
+      }
     });
     var pick = 0;
-    english.forEach(function (v, i) { if (v.voiceURI === keep) pick = i; });
+    choices.forEach(function (c, i) { if (choiceKey(c) === keep) pick = i; });
     narrUI.voice.value = String(pick);
-    narr.voice = english[pick];
+    narr.choice = choices[pick];
     showVoiceNote();
   }
 
   function showVoiceNote() {
-    if (narrUI) narrUI.note.hidden = !(narr.voice && narr.voice.localService === false);
+    if (narrUI) narrUI.note.hidden = !(narr.choice && narr.choice.kind === "web" && narr.choice.voice.localService === false);
+  }
+
+  function loadRecordings() {
+    if (!window.fetch) return;
+    fetch("narration/index.json", { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || data.format !== "storyprints-narration" || !data.voices || !data.voices.length) return;
+        rec.voices = data.voices.filter(function (v) { return v && /^[\w-]+$/.test(v.id); });
+        rec.lines = data.lines || {};
+        if (/^\.(mp3|m4a|wav|ogg)$/.test(data.ext)) rec.ext = data.ext;
+        loadVoices();
+      })
+      .catch(function () { /* no recordings: the browser's voices only */ });
   }
 
   function stopSpeech() {
@@ -113,6 +164,7 @@
     narr.speaking = false;
     narr.spoken = -1;
     if (synth) { try { synth.cancel(); } catch (e) { /* ignore */ } }
+    if (audio) { try { audio.pause(); } catch (e) { /* ignore */ } }
   }
 
   function releaseHold() {
@@ -123,24 +175,55 @@
 
   function speakLine(text) {
     var token = ++narr.token;
-    var u = new SpeechSynthesisUtterance(text.replace(/^[\s…]+|[\s…]+$/g, "").replace(/…/g, ", ").replace(/·/g, ","));
-    if (narr.voice) { u.voice = narr.voice; u.lang = narr.voice.lang; } else { u.lang = "en-GB"; }
-    u.rate = narr.rate;
     var finished = function () {
       if (token !== narr.token) return;
       narr.speaking = false;
       releaseHold();
     };
+    var c = narr.choice;
+    var file = recordingOf(text, c);
+    narr.speaking = true;
+    if (file) {
+      if (!audio) audio = new Audio();
+      narr.deadline = Date.now() + 10000 + text.length * 120 / narr.rate;
+      audio.onended = finished;
+      audio.onerror = finished;
+      audio.onloadedmetadata = function () {
+        if (token === narr.token && isFinite(audio.duration)) narr.deadline = Date.now() + 3000 + audio.duration * 1000 / narr.rate;
+      };
+      audio.src = file;
+      audio.playbackRate = narr.rate;
+      try { audio.defaultPlaybackRate = narr.rate; audio.preservesPitch = true; } catch (e) { /* ignore */ }
+      var p = audio.play();
+      if (p && p.catch) p.catch(finished);
+      preloadNext();
+      return;
+    }
+    if (!synth) { finished(); return; }
+    var u = new SpeechSynthesisUtterance(cleanLine(text));
+    if (c && c.kind === "web") { u.voice = c.voice; u.lang = c.voice.lang; } else { u.lang = "en-GB"; }
+    u.rate = narr.rate;
     u.onend = finished;
     u.onerror = finished;
-    narr.speaking = true;
     narr.deadline = Date.now() + 4000 + text.length * 120 / narr.rate;
     try { synth.speak(u); } catch (e) { narr.speaking = false; }
   }
 
+  // ask for the next line's recording while this one plays
+  var preloader = null;
+  function preloadNext() {
+    var beats = beatsOf(current);
+    var next = beats[narr.spoken + 1] || (scenes[current + 1] ? beatsOf(current + 1)[0] : null);
+    var file = next && recordingOf(next.text, narr.choice);
+    if (!file) return;
+    if (!preloader) { preloader = new Audio(); preloader.preload = "auto"; preloader.muted = true; }
+    preloader.src = file;
+    try { preloader.load(); } catch (e) { /* ignore */ }
+  }
+
   // called on every frame while playing; returns true while the scene is held for speech
   function narrate(t) {
-    if (!narr.on || !synth) return false;
+    if (!narr.on || !narr.choice) return false;
     var beats = beatsOf(current);
     if (!beats.length) return false;
     // a voice that never reports it has finished must not stop the chapter
@@ -163,7 +246,6 @@
   }
 
   function buildNarrationUI() {
-    if (!synth || typeof SpeechSynthesisUtterance === "undefined") return;
     var box = document.createElement("div");
     box.className = "narration";
     box.hidden = true;
@@ -171,7 +253,7 @@
       '<label class="read-aloud"><input type="checkbox"> Read aloud</label>' +
       '<label class="pick">Voice <select></select></label>' +
       '<label class="pick">Speed <select><option value="0.85">Slower</option><option value="1">Normal</option><option value="1.15">Faster</option></select></label>' +
-      '<p class="voice-note" hidden>Online voice: your browser sends the captions to its maker (Microsoft or Google) to be spoken. Voices without “Online” work on this computer.</p>';
+      '<p class="voice-note" hidden>Online voice: your browser sends the captions to its maker (Microsoft or Google) to be spoken. Recorded voices, and voices without “Online”, work without sending anything.</p>';
     var selects = box.querySelectorAll("select");
     narrUI = { box: box, toggle: box.querySelector("input"), voice: selects[0], rate: selects[1], note: box.querySelector(".voice-note") };
     player.insertBefore(box, list);
@@ -190,8 +272,8 @@
       if (narr.on) unlockSpeech();
     });
     narrUI.voice.addEventListener("change", function () {
-      narr.voice = narr.voices[parseInt(narrUI.voice.value, 10)] || null;
-      store("storyprints-help-voice", narr.voice ? narr.voice.voiceURI : null);
+      narr.choice = narr.choices[parseInt(narrUI.voice.value, 10)] || null;
+      store("storyprints-help-voice", choiceKey(narr.choice));
       showVoiceNote();
       restartLine();
     });
@@ -202,8 +284,11 @@
     });
 
     loadVoices();
-    if (synth.addEventListener) synth.addEventListener("voiceschanged", loadVoices);
-    else synth.onvoiceschanged = loadVoices;
+    loadRecordings();
+    if (synth) {
+      if (synth.addEventListener) synth.addEventListener("voiceschanged", loadVoices);
+      else synth.onvoiceschanged = loadVoices;
+    }
   }
 
   // a new voice or speed: say the current line again, in the new voice
@@ -213,11 +298,24 @@
     releaseHold();
   }
 
-  // some browsers (Safari) only allow speech that starts from a click
+  // phones (Safari in particular) only allow sound that starts from a tap,
+  // so the first Play or Read aloud tap starts both kinds of voice silently
+  function silentWav() {
+    var n = 2400, b = new ArrayBuffer(44 + n * 2), d = new DataView(b);
+    var w = function (o, s) { for (var k = 0; k < s.length; k++) d.setUint8(o + k, s.charCodeAt(k)); };
+    w(0, "RIFF"); d.setUint32(4, 36 + n * 2, true); w(8, "WAVEfmt "); d.setUint32(16, 16, true);
+    d.setUint16(20, 1, true); d.setUint16(22, 1, true); d.setUint32(24, 24000, true); d.setUint32(28, 48000, true);
+    d.setUint16(32, 2, true); d.setUint16(34, 16, true); w(36, "data"); d.setUint32(40, n * 2, true);
+    return URL.createObjectURL(new Blob([b], { type: "audio/wav" }));
+  }
   function unlockSpeech() {
-    if (narr.unlocked || !narr.on || !synth) return;
+    if (narr.unlocked || !narr.on) return;
     narr.unlocked = true;
-    try { var u = new SpeechSynthesisUtterance(" "); u.volume = 0; synth.speak(u); } catch (e) { /* ignore */ }
+    if (synth) { try { var u = new SpeechSynthesisUtterance(" "); u.volume = 0; synth.speak(u); } catch (e) { /* ignore */ } }
+    try {
+      if (!audio) audio = new Audio();
+      if (!audio.src) { audio.src = silentWav(); var p = audio.play(); if (p && p.catch) p.catch(function () {}); }
+    } catch (e) { /* ignore */ }
   }
 
   // every scene starts paused at its beginning

@@ -1,0 +1,18 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  }
+ ],
+ "lines": {
+  "Photos of prints and album pages go to the PC the same way: with the phone’s USB cable, choosing File transfer on the phone…": "42d5a04ac3d5",
+  "…or use the Windows Photos app’s Import. Your own OneDrive camera backup works too.": "0de083a2d57e",
+  "iPhone photos need Windows’ HEIF and HEVC extensions. Avoid Google Photos Storage saver, which lowers the quality.": "89df914ec866"
+ }
+}

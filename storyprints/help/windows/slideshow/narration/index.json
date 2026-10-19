@@ -1,0 +1,34 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  }
+ ],
+ "lines": {
+  "A slideshow plays one folder of photos. In File Explorer, make a new folder for the show…": "8ea7a1d0934f",
+  "…and copy in the photos you want. They can come from StoryPrints or anywhere else.": "d299363cbb9b",
+  "StoryPrints never changes them: it only adds one small file with the show’s order and captions.": "a4910673fbdb",
+  "Shows start from the home screen: Slideshow, under Show your photos.": "5b52f44d27e0",
+  "The Slideshow screen explains: the photos for a show go in a folder of their own.": "660c5e6cc434",
+  "Choose that folder…": "24660e841065",
+  "…and click New show.": "e114dd3b1c60",
+  "The bar along the top sets the whole show: how long each photo stays,": "bf12c8586807",
+  "fade or cut between photos, whether to start again at the end,": "3006b0c9a94a",
+  "what the caption says, how the date is shown, and the order.": "3e4b1814e466",
+  "Sort by date or by name, or drag a photo to a new place.": "c885182a17ae",
+  "Choose how dates show (here, just the year), tick Start again to keep it repeating, name the show, and click Save.": "f2949c400cf9",
+  "Click a photo to set its own time, caption or date style.": "789d1157b5ae",
+  "Change its words here for this show only: the photo itself isn’t changed.": "0e2e2faff8b6",
+  "Or hide it: it stays in the folder but is left out of the show.": "7775a87ed9ae",
+  "Title & PDF sets a title page with your own words and a cover photo.": "15c974f1651c",
+  "Tick Show it first in the slideshow to start the show with it.": "85f4035c2463",
+  "Click Play. The show fills the screen, with each photo’s caption underneath.": "1e9c6dc1b23a",
+  "Space pauses, the arrow keys go back and forward, and Esc stops.": "a256045007e4"
+ }
+}

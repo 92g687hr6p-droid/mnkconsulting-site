@@ -1,0 +1,24 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  }
+ ],
+ "lines": {
+  "On an album page, the line at the top says what to do: click a photo on the page.": "01734d54c775",
+  "StoryPrints finds the photo and opens it on the crop screen. Adjust it if needed, then click Apply Crop.": "2b310a97ae84",
+  "Back on the page it’s numbered and shown under the page. Take the next photo the same way.": "8227c3493c19",
+  "Click a photo under the page to open it: turn it, change its crop or add its details.": "0722054b8806",
+  "Type what you know: who, where, and the story behind it.": "4bd9ddb4496f",
+  "For the date, start with the year…": "160496b3077b",
+  "…then the month and day, only if you know them. The month is chosen from a list.": "593ecde9336d",
+  "Give the photo your own file name, or leave it and StoryPrints names it when you save.": "2e12fa9d7159",
+  "Save & next goes on to the next photo.": "556782b2816d"
+ }
+}

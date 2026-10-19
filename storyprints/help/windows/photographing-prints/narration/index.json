@@ -1,0 +1,29 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  }
+ ],
+ "lines": {
+  "Daylight works best.": "8e4a61a1cd91",
+  "Spotlights and lamps cause glare on glossy prints: a bright patch on the screen.": "d52626c49861",
+  "Move the print, or yourself, until the patch has gone.": "e7fcd8e005df",
+  "Keep the light even, and leave the flash off: strong sunlight across part of the backing can confuse the edge finder.": "f0907a3bca84",
+  "Hold the phone flat, straight above the print, so it looks square on the screen.": "c52cf1fd2b0f",
+  "StoryPrints can straighten a photo taken at an angle, but holding the phone flat gives the best result.": "fd64ab09e560",
+  "Watch for your own shadow or the phone’s. Stand so the light isn’t behind you.": "5030d3ece844",
+  "A backing that contrasts with the photo helps StoryPrints find the edges more easily:": "e28ae55efdf2",
+  "dark for light pictures, such as sky or beach…": "58315836f757",
+  "…light for darker ones, such as indoor shots.": "222033c2dcf9",
+  "Always leave some backing showing all round the print. It helps, but it isn’t essential.": "b861d1d6ebea",
+  "There’s no need to take photos out of the album.": "b2ce77fbe44f",
+  "If the page has a clear plastic cover, peel it back if you can: it causes reflections.": "94e4e50c61de",
+  "Get as much of the page in as you can. It’s fine if a little of the table shows.": "da9c2abe6b89"
+ }
+}

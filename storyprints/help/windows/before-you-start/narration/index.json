@@ -1,0 +1,22 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  }
+ ],
+ "lines": {
+  "Old prints, album pages and digital photos, brought together as one collection, each with its story.": "3ea9a5e61dee",
+  "You might have family albums…": "ba3bb33fa147",
+  "…a box of loose prints…": "e80ea022a914",
+  "…and photos that friends and relatives have emailed or sent. StoryPrints works with all three.": "e8259d559cb1",
+  "At the end you have one folder of digital photos, each with its description and date saved inside it.": "f215f2c8f65d",
+  "From that folder you can make a slideshow, and a PDF to share or print.": "bccdac936a8b",
+  "The photos stand on their own: any photo app can open them, with or without StoryPrints.": "037505a3f36c"
+ }
+}
