@@ -142,7 +142,9 @@
   }
 
   function showVoiceNote() {
-    if (narrUI) narrUI.note.hidden = !(narr.choice && narr.choice.kind === "web" && narr.choice.voice.localService === false);
+    if (!narrUI) return;
+    narrUI.note.hidden = !(narr.choice && narr.choice.kind === "web" && narr.choice.voice.localService === false);
+    narrUI.credit.hidden = !(narr.choice && narr.choice.kind === "rec");
   }
 
   function loadRecordings() {
@@ -253,9 +255,10 @@
       '<label class="read-aloud"><input type="checkbox"> Read aloud</label>' +
       '<label class="pick">Voice <select></select></label>' +
       '<label class="pick">Speed <select><option value="0.85">Slower</option><option value="1">Normal</option><option value="1.15">Faster</option></select></label>' +
-      '<p class="voice-note" hidden>Online voice: your browser sends the captions to its maker (Microsoft or Google) to be spoken. Recorded voices, and voices without “Online”, work without sending anything.</p>';
+      '<p class="voice-note" hidden>Online voice: your browser sends the captions to its maker (Microsoft or Google) to be spoken. Recorded voices, and voices without “Online”, work without sending anything.</p>' +
+      '<p class="voice-note voice-credit" hidden>Recorded voices made with <a href="https://huggingface.co/hexgrad/Kokoro-82M" rel="noopener">Kokoro</a>, an open-source speech model (Apache 2.0 licence).</p>';
     var selects = box.querySelectorAll("select");
-    narrUI = { box: box, toggle: box.querySelector("input"), voice: selects[0], rate: selects[1], note: box.querySelector(".voice-note") };
+    narrUI = { box: box, toggle: box.querySelector("input"), voice: selects[0], rate: selects[1], note: box.querySelector(".voice-note"), credit: box.querySelector(".voice-credit") };
     player.insertBefore(box, list);
 
     narr.on = stored("storyprints-help-read-aloud") === "on";

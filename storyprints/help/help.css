@@ -162,6 +162,7 @@
 .narration select:focus-visible, .narration input:focus-visible { outline: 3px solid #8FB4F5; outline-offset: 2px; }
 .narration .voice-note { flex-basis: 100%; margin: 0; font-size: 0.85rem; color: #A6ABAF; }
 .narration .voice-note[hidden] { display: none; }
+.narration .voice-credit a { color: #8FB4F5; }
 
 /* Transcript */
 .steps { padding-left: 1.4rem; }
