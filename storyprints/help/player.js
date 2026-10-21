@@ -6,6 +6,7 @@
  * <ol class="beats"> of caption lines, each with data-at = the second it
  * starts. Scenes play one after another; captions follow the scene's clock.
  * With "reduce motion" on, each scene opens at its end with all its words.
+ * The address can name a scene to open at: #scene-2.
  *
  * Read aloud (optional, off by default): each caption line is spoken as it
  * appears, by a recorded voice (narration/index.json beside the page, made
@@ -450,6 +451,15 @@
   window.addEventListener("pagehide", stopSpeech);
   buildNarrationUI();
 
-  show(0, false);
+  // a link to one scene: <chapter>/#scene-2 opens at scene 2 (the app's
+  // Help buttons use this), ready to play
+  function sceneFromHash() {
+    var m = /^#scene-(\d+)$/.exec(window.location.hash || "");
+    var n = m ? parseInt(m[1], 10) - 1 : 0;
+    return n >= 0 && n < scenes.length ? n : 0;
+  }
+  window.addEventListener("hashchange", function () { show(sceneFromHash(), false); });
+
+  show(sceneFromHash(), false);
   if (reduce) { overlay.hidden = true; started = true; }
 })();
