@@ -1,0 +1,27 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  },
+  {
+   "id": "bm_lewis",
+   "label": "Lewis"
+  }
+ ],
+ "lines": {
+  "In the grid, an amber edge and a Crop label mean a photo still needs cropping.": "6d2bf264182f",
+  "A green tick means it’s ready to save.": "373bffaf307f",
+  "Tap Needs a crop to see just those still to do; All shows everything again.": "a883c59c144a",
+  "Tap a photo to open it, or tap Crop next to work through them one after another.": "d20eae7bd898",
+  "To accept several crops at once, press and hold one of them in the grid.": "2167967a7eee",
+  "Tap the others whose outlines look right, then tap Accept crops.": "c614dac2d605",
+  "They’re all cropped and ready to save.": "ffa16916f376",
+  "The same way, No crop needed marks photos that need no cropping, and Remove takes them out of the session.": "b2c9786ca5b2"
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  },
+  {
+   "id": "bm_lewis",
+   "label": "Lewis"
+  }
+ ],
+ "lines": {
+  "For an album, switch the camera to Album pages.": "45744823130e",
+  "Leave the prints where they are: there’s no need to take them out.": "f5d2767164f3",
+  "If the plastic film makes glare, peel it back.": "f25086960531",
+  "Get as much of the page in as you can, with a little space round it. A table round the edge is fine.": "c30ea859ef65",
+  "Open the page and tap a photo on it.": "dd377d99d7c8",
+  "StoryPrints finds its edges and shows you the crop. Adjust it if you need to, then tap Apply Crop.": "8be2df5eda80",
+  "Each photo you take gets a green box with a number.": "3eb561c93667",
+  "Tap inside a green box to crop that photo again.": "36929f4fa15f",
+  "Took an album page as a print? Open it and tap the ⋮ menu at the top right.": "e023549ad99b",
+  "Choose It’s an album page.": "ac97bf38dbf6",
+  "On an album page, It’s a photo changes it back.": "93c0a4a5445e",
+  "If a photo is blurred, Retake replaces it with a new one.": "0ccca00998a5"
+ }
+}

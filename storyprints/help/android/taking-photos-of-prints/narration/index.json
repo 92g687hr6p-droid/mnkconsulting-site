@@ -1,0 +1,30 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  },
+  {
+   "id": "bm_lewis",
+   "label": "Lewis"
+  }
+ ],
+ "lines": {
+  "Daylight is best: near a window, out of direct sun.": "d6c012a48669",
+  "A lamp or spotlight overhead makes glare on glossy prints, so turn it off.": "07a70073c93d",
+  "Watch for the shadow of your phone and hands.": "ebaeaa5d9eb1",
+  "Hold the phone flat above the print. StoryPrints straightens photos taken at an angle, but flat is best.": "c84eb422b4fe",
+  "A backing that contrasts with the photo helps StoryPrints find the edges more easily:": "e28ae55efdf2",
+  "dark for light photos, light for dark ones. It isn’t essential.": "2a8405cc6c6c",
+  "Leave a border of backing showing all round the print, so none of its edges is cut off.": "4333d73f6830",
+  "Tap Take photos.": "b4af8d47c02e",
+  "Check that Prints is selected at the top, then tap the round button for each print.": "e5b5383791ff",
+  "The last photo and the count show at the bottom, so you can keep going without stopping.": "74f97d366fda",
+  "When you’ve finished, tap Done.": "136d5e98fc9d"
+ }
+}

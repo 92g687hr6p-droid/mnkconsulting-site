@@ -1,0 +1,35 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  },
+  {
+   "id": "bm_lewis",
+   "label": "Lewis"
+  }
+ ],
+ "lines": {
+  "When you’re ready, tap Finish & save.": "2cdd103ec4bc",
+  "StoryPrints tells you how many photos it will save and where.": "2a4083636254",
+  "Photos still to crop aren’t saved, so go back with Continue the session if you missed any.": "8cb0106c72bd",
+  "Tap Save. Your photos go to the gallery with their descriptions and dates, and you’re ready to start again.": "893df41120f1",
+  "StoryPrints always saves new copies.": "0d2bf9b11dec",
+  "The photos you added are never changed.": "f6c8d3a34c75",
+  "When you’re happy, you can delete the originals yourself, or keep them, for example to take more photos from an album page later.": "a445eaf78e8f",
+  "The description and date are saved inside each new photo.": "e449b08df718",
+  "To keep them in a folder of their own, tap Choose folder": "163077355fc0",
+  "and pick or make one inside Pictures or DCIM.": "354bd01e962e",
+  "StoryPrints remembers it for next time.": "54401657628a",
+  "Save to the photo gallery instead switches back.": "6c08c7e5f4b5",
+  "To stop part way, tap Save progress.": "aaa9d22e95d2",
+  "Give the work a name and choose a folder for it, such as a StoryPrints folder in Pictures.": "8bf614b42e4b",
+  "The photos that are ready are saved there, and everything else is kept beside them.": "ba1beba5ce7c",
+  "Next time, tap Continue under Continue saved work.": "e58dd5140732"
+ }
+}

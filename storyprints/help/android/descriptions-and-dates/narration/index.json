@@ -1,0 +1,29 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  },
+  {
+   "id": "bm_lewis",
+   "label": "Lewis"
+  }
+ ],
+ "lines": {
+  "Tap Add a description and date, under any photo.": "5300a6e8ede2",
+  "Say who’s in it, where it was and what was happening.": "80ce4b5154ea",
+  "The description is saved inside the photo, so it goes wherever the photo goes.": "c1c4f554400a",
+  "Start with the year, then add the month and day if you know them.": "4406856bcb23",
+  "Leave out anything you don’t know.": "8a047db6e689",
+  "A year on its own is saved as the first of July,": "709144e965d9",
+  "and a month without a day as the fifteenth, so your photos still sort into roughly the right order in other apps.": "53da6364debc",
+  "If you’d like the saved photo to have a name of your own, type it under File name.": "0aa75a70614f",
+  "Leave it empty and StoryPrints names it when you save.": "f6531ab996c2",
+  "Tap Save & next to move straight on to the next photo’s details.": "3f1bc59c0e3c"
+ }
+}

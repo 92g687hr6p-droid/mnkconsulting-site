@@ -25,6 +25,14 @@
   height: auto;
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
+/* Android chapters: the scenes are a portrait phone, held to the screen's
+   height and centred (on a phone it fills the width). */
+.player.portrait .stage svg {
+  width: auto;
+  max-width: 100%;
+  max-height: min(78vh, 760px);
+  margin: 0 auto;
+}
 .start-overlay {
   position: absolute;
   inset: 0;

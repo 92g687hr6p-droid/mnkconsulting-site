@@ -1,0 +1,27 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  },
+  {
+   "id": "bm_lewis",
+   "label": "Lewis"
+  }
+ ],
+ "lines": {
+  "To carry on on a PC, first Save progress on the phone.": "712bf26db630",
+  "Then plug in the phone’s USB cable and choose File transfer on the phone.": "0fbdd4a12df4",
+  "In File Explorer, copy the whole folder your work is in to the PC.": "7c9a96443b07",
+  "Keep the work’s file and its folder together.": "6e2e51d72b52",
+  "In StoryPrints for Windows, click Open saved work from another folder and pick the work’s file.": "6d78eb376d08",
+  "Everything comes back as you left it on the phone.": "b5ee2d28284c",
+  "Finish cropping with the mouse, then make your slideshow or booklet.": "a5c6fe0a1b5d",
+  "The Windows help shows you how.": "ef900bee94e5"
+ }
+}

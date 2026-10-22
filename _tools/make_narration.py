@@ -64,6 +64,7 @@ SAY = [
     (r"\bHEIF\b", "heef"),
     (r"\bHEVC\b", "H E V C"),
     (r"\bOneDrive\b", "One Drive"),
+    (r"\bDCIM\b", "D C I M"),
     # iPhone "Live Photos" / "turn Live off": live as in a live broadcast
     # (rhymes with five), not "to live". Kokoro's phonemes: I is the "eye" sound.
     (r"\bLive\b", "[Live](/lˈIv/)"),

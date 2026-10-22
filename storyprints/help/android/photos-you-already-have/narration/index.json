@@ -1,0 +1,30 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  },
+  {
+   "id": "bm_lewis",
+   "label": "Lewis"
+  }
+ ],
+ "lines": {
+  "For photos already on your phone, tap Add from library.": "4d955c744516",
+  "Say whether they’re single photos or album pages.": "d0d479f82332",
+  "In the picker, press and hold the first photo to pick several, tap the others, then tap Add.": "75ee56b6b799",
+  "Add more the same way.": "3ba996c27d5a",
+  "Scan a document uses your phone’s own scanner, one print at a time.": "9f9ec611e115",
+  "It finds the edges and straightens the print for you, so it comes back already cropped.": "8a9ec0851d6f",
+  "To change the crop, open it in StoryPrints and tap Crop.": "22ee58e5b965",
+  "Digital photos usually need no cropping.": "a73afc21643f",
+  "Select them in the grid and tap No crop needed.": "95181e185cde",
+  "StoryPrints saves them only when you’ve changed something,": "9d583e9535bc",
+  "so add a description and date, and the saved copy carries them.": "27b9b409ae8b"
+ }
+}

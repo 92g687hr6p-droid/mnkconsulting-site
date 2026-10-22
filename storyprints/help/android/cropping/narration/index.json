@@ -1,0 +1,32 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  },
+  {
+   "id": "bm_lewis",
+   "label": "Lewis"
+  }
+ ],
+ "lines": {
+  "StoryPrints finds the edges for you and outlines the photo in lime.": "8de03993e14c",
+  "If the outline is right, tap Accept crop.": "897e25eaab8b",
+  "The photo is cropped and ready to save.": "cb7851d41a12",
+  "Use the arrows at the top to move to the next photo.": "ef3fe613c560",
+  "If an edge is out, tap Adjust.": "c1144a4b5598",
+  "Then tap just inside the photo, close to where its edge really is.": "9a79f76d5644",
+  "StoryPrints looks there and snaps the line to it. Try this first, as it’s often all you need.": "790a6b595049",
+  "If it says No edge there, drag the line instead. Then tap Apply Crop.": "70dbdce2e2e6",
+  "You can also drag a corner or a side. A magnifier shows it close up under your finger.": "042446ca682c",
+  "For fine control, tap the sliders button at the top right.": "66b961b35170",
+  "Its buttons move the whole outline, or one edge in or out, in coarse or fine steps.": "bf656ef12c09",
+  "Undo steps back, and Zoom takes a closer look.": "42a4db0c9186",
+  "When it’s right, tap Apply Crop.": "ce105c3329b2"
+ }
+}

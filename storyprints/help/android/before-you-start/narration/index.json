@@ -1,0 +1,29 @@
+{
+ "format": "storyprints-narration",
+ "version": 1,
+ "made_with": "Kokoro-82M (Apache 2.0)",
+ "speed": 1.0,
+ "ext": ".mp3",
+ "voices": [
+  {
+   "id": "bf_emma",
+   "label": "Emma"
+  },
+  {
+   "id": "bm_lewis",
+   "label": "Lewis"
+  }
+ ],
+ "lines": {
+  "StoryPrints turns old prints, album pages and photos already on your phone into neatly cropped photos, each with its description and date.": "6395b1f6cb56",
+  "You photograph them, check the crops, add the details, and save them to your phone’s gallery.": "e23e7a3ba2d3",
+  "Everything starts from the home screen.": "ed74fd1cc775",
+  "It shows how many photos you have, how many are ready to save and how many still need a crop.": "40494cfb4165",
+  "Review & crop takes you through them; Finish & save saves them.": "57207c7cc905",
+  "Help, at the top, opens these guides.": "996cbca33cd2",
+  "You don’t have to finish in one go.": "17ac594fddbc",
+  "Tap Save progress to keep everything, even photos not yet cropped.": "088a37d664fc",
+  "Next time, it’s waiting under Continue saved work.": "a0bb149495f4",
+  "You can even continue on a PC: chapter 9 shows how.": "03b63a11d672"
+ }
+}
